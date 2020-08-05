@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 출력하기</title>
+    <style>
+        table th {background-color: cornflowerblue;}
+        table {border-collapse: collapse;}
+        table th, table td {border: 1px dotted darkcyan; padding:10px 50px}
+        .btn { background-color: rgb(255, 184, 78); color: rgb(2, 82, 255); padding:5px 10px; border-radius: 5px; text-decoration: none;}
+        table td {text-align: center;}
+    </style>
+</head>
+<body>
+    <h1 align="center">{{temp_dic.Name}} Page</h1>
+    <hr>
+    <h2 align="center">No. {{temp_dic.No}}</h2>
+    <hr>
+    <table cellpadding="10" cellspacing = "0" align = "center">
+        <tr>
+            <th>Country Number</th>
+            <td>{{ temp_dic.No }}</td>
+        </tr>
+        <tr>
+            <th>Country Code</th>
+            <td>{{ temp_dic.Code }}</td>
+        </tr>
+        <tr>
+            <th>Country GNP</th>
+            <td>$ {{ temp_dic.GNP }}</td>
+        </tr>
+        <tr>
+            <th>Country Population</th>
+            <td>{{ temp_dic.Population }}</td>
+        </tr>
+        <hr>
+        <p><a href="/">첫페이지로 이동하기</a></p>
+    </table>
+</body>
+</html>

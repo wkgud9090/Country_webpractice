@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Page</title>
+    <style>
+        * {text-align: center;}
+    </style>
+</head>
+<body>
+    <h1>Start Page</h1>
+    <hr>
+
+    <h2>Hello World</h2>
+    <ul>
+        <li><a href="/"> 첫번째 페이지 </a></li>
+        <li><a href="/second"> 두번째 페이지 </a></li>
+        <li><a href="/third"> 세번째 페이지 </a></li>
+    </ul>
+    <hr>
+    <h2>GET 방식</h2>
+    <form action="/result" method="get">
+    <button>Submit</button>
+    </form>
+    <hr>
+    <h2>POST 방식</h2>
+    <form action="/result" method="POST">
+    <button>Submit</button>
+    </form>
+    <hr>
+    <!--사실get-->
+    <h2>Method None 방식</h2>  
+    <form action="/result">
+    <button>Submit</button>
+    </form>
+    <hr>
+</body>
+</html>

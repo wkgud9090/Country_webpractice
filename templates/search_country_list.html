@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 출력하기</title>
+    <style>
+        table th {background-color: cornflowerblue;}
+        table {border-collapse: collapse;}
+        table th, table td {border: 1px dotted darkcyan; padding:10px 50px}
+        .btn { background-color: rgb(255, 184, 78); color: rgb(2, 82, 255); padding:5px 10px; border-radius: 5px; text-decoration: none;}
+        table td {text-align: center;}
+    </style>
+</head>
+<body>
+    <h1 align="center"> {{country_name}}이(가) 들어간 나라 List</h1>
+    <hr>
+    <h2 align="center">{{totalcount}} 개</h2>
+    <hr>
+    <hr>
+    <table cellpadding="10" cellspacing = "0" align = "center">
+        <tr>
+            <th>No</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>GNP</th>
+            <th>Population</th>
+            <th>Detail</th>
+        </tr>
+        {% for temp_dic in country_list %}
+        <tr>
+            <td>{{temp_dic.No}}</td>
+            <td>{{temp_dic.Code}}</td>
+            <td>
+                 {{temp_dic.Name}}
+            </td>
+            <td>${{temp_dic.GNP}}</td>
+            <td>약 {{temp_dic.Population}}명</td>
+            <td><a href = "/country/{{temp_dic.No}}" class="btn">View </a></td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td><a href="/">첫페이지로 이동하기</a></td>
+        </tr>
+    </table>
+
+    <hr>
+ 
+</body>
+</html>

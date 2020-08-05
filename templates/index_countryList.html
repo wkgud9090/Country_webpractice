@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 출력하기</title>
+    <style>
+        table th {background-color: cornflowerblue;}
+        table {border-collapse: collapse;}
+        table th, table td {border: 1px dotted darkcyan}
+        .btn { background-color: rgb(255, 184, 78); color: rgb(2, 82, 255); padding:5px 10px; border-radius: 5px; text-decoration: none;}
+        form {text-align: center;}
+        form input {border:1px solid black; padding:5px}
+        .add {width:650px; text-align: right;}
+    </style>
+</head>
+<body>
+    <h1 align="center">WorldCity 테이블 전체 조회</h1>
+    <hr>
+    <form action="/search_list">
+        <input type="text" name="country_name"
+            required placeholder="country_name">
+        <button>검색</button>
+    </form>
+    <hr>
+    <h2 align="center">총 레코드 수 : {{totalcount}}</h2>
+    <hr>
+    <p class = "add"><a href="/country_add" class="btn">레코드 추가</a></p>
+    <hr>
+    <table cellpadding="10" cellspacing = "0" align = "center">
+        <tr>
+            <th>No</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>GNP</th>
+            <th>Population</th>
+            <th>Detail</th>
+            <th>Delete</th>
+        </tr>
+        {% for temp_dic in country_list %}
+        <tr>
+            <td>{{temp_dic.No}}</td>
+            <td>{{temp_dic.Code}}</td>
+            <td>
+                 {{temp_dic.Name}}
+            </td>
+            <td>${{temp_dic.GNP}}</td>
+            <td>약 {{temp_dic.Population}}명</td>
+            <td><a href = "/country/{{temp_dic.No}}" class="btn">View </a></td>
+            <td><a href = "/country_delete/{{temp_dic.No}}" class="btn">Delete </a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
