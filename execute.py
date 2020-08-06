@@ -37,7 +37,7 @@ def country_add_pro():
     c_population = request.form['c_population']
     print(c_code, c_name, c_gnp, c_population)
     db.country_add(c_code, c_name, c_gnp, c_population)
-    return redirect(url_for('index'))
+    return redirect('/')
 
 @app.route('/country_delete/<country_no>')
 def country_delete(country_no):
@@ -49,4 +49,17 @@ def country_delete_pro(country_no):
     db.country_delete(country_no)
     return redirect('/')
 
+
+@app.route('/country_update/<country_no>')
+def country_update(country_no):
+    temp_dic = db.country(country_no)
+    return render_template('country_update.html',temp_dic = temp_dic)
+
+@app.route('/country_update_pro', methods=['post'])
+def country_update_pro():
+    c_no = request.form['c_no']
+    c_gnp = request.form['c_gnp']
+    c_population = request.form['c_population']
+    db.country_update(c_no, c_gnp, c_population)
+    return redirect(url_for('country_list'))
 app.run(host='127.0.0.1', port =5000, debug=True)

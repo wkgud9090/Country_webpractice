@@ -81,3 +81,14 @@ def country_delete(country_no):
     cursor.execute(sql, (country_no))
     conn.commit()
     conn.close()
+
+def country_update(c_no, c_gnp, c_population):
+    # 데이타베이스 접속함수 호출
+    conn = get_connection()
+    # 작업변수 생성
+    cursor = conn.cursor()
+    # 레코드 수정 sql 구문 
+    sql = '''update worldcity set GNP=%s,Population=%s where No=%s'''
+    cursor.execute(sql, (c_gnp, c_population, c_no))
+    conn.commit()
+    conn.close()
