@@ -11,7 +11,7 @@
         .btn { background-color: rgb(255, 184, 78); color: rgb(2, 82, 255); padding:5px 10px; border-radius: 5px; text-decoration: none;}
         form {text-align: center;}
         form input {border:1px solid black; padding:5px}
-        .add {width:650px; text-align: right;}
+        .add {width:800px; text-align: right;}
     </style>
 </head>
 <body>
@@ -36,6 +36,7 @@
             <th>Population</th>
             <th>Detail</th>
             <th>Delete</th>
+            <th>Update</th>
         </tr>
         {% for temp_dic in country_list %}
         <tr>
@@ -46,8 +47,9 @@
             </td>
             <td>${{temp_dic.GNP}}</td>
             <td>약 {{temp_dic.Population}}명</td>
-            <td><a href = "/country/{{temp_dic.No}}" class="btn">View </a></td>
-            <td><a href = "/country_delete/{{temp_dic.No}}" class="btn">Delete </a></td>
+            <td><a href = "/country/{{temp_dic.No}}" class="btn"> View </a></td>
+            <td><a href = "/country_delete/{{temp_dic.No}}" class="btn"> Delete </a></td>
+            <td><a href = "/country_update/{{temp_dic.No}}" class="btn"> Edit </a></td>
         </tr>
         {% endfor %}
     </table>
